@@ -206,8 +206,8 @@ if __name__=='__main__':
     pseudo_label, pseudo_index=GetPseudoLabel_Kmeans(selfassessment_list, plot=False)
     groundtruth_df=GetGroundtruth_Df(selfassessment_list, pseudo_label, pseudo_index, plot_ground_video=False, plot_individual=True)
     
-    '''
+    
     with open("./tmp/data_list.pkl", "wb") as file:
         pickle.dump(data_list, file)
     groundtruth_df.to_csv("./groundtruth.csv", index=False)
-    '''
+    

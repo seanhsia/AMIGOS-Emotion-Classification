@@ -10,15 +10,9 @@ import pickle
 
 #math tools
 import numpy as np
-import pandas as pd
-from sklearn.preprocessing import normalize, MinMaxScaler
 
-#pysiology process pakage
-import neurokit as nk
-
-#drawing tools
-import matplotlib.pyplot as plt
-import seaborn as sns
+#Normalize
+from sklearn.preprocessing import MinMaxScaler
 
 #computing entropy
 from scipy.stats import entropy

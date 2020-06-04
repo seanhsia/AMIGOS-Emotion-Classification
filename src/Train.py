@@ -182,8 +182,9 @@ if __name__=='__main__':
         test_loader = DataLoader(TensorDataset(X_test, y_test), 
                              batch_size=batch_size, shuffle=True)
     
-        autoencoder=m.AutoEncoderEEGDWT2D()    
-        autoencoder.load_state_dict(torch.load(autoencoder_weight_path))
+        autoencoder=m.AutoEncoderEEGDWT2D()
+        if autoencoder_weight_path != "":
+            autoencoder.load_state_dict(torch.load(autoencoder_weight_path))
     
         clf=m.ClassifierEEGDWT2D(autoencoder.encoder)
         train_loss, test_loss, train_acc, test_acc, valence_acc, arousal_acc=TrainClassifier(
