@@ -1,0 +1,18 @@
+#ignore all pkl files
+*.pkl
+
+#ignore all files under data directory
+dataset/*
+
+#ignore all csv files
+*.csv
+
+#ignore all weight files under model weight
+src/modelweight/*
+
+#ignore all ica files under eeg_ica directory
+src/eeg_ica/*
+
+#ignore spyder project files
+src/.spyproject
+src/__pycache__
