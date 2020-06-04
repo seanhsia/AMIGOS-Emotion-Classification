@@ -33,12 +33,12 @@ For more details please checkout **Emotion Recognition based on EEG signals usin
 ## src
 ---
 - Containing all **source code** written in python
-    ###Readmat.py
+    ### Readmat.py
 
 ## src/modelweight
 ---
 - Containing all **model weight** (torch model state dictionary object)
-- 
+
 
 ## src/tmp
 ---
