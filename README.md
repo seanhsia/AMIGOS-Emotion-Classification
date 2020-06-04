@@ -3,7 +3,7 @@
 In this study, we developed an emotion recognition system based on the valence-arousal model. Independent component analysis (ICA) was applied in order to remove the ocular movement effect. Afterward, we applied discrete wavelet transform (DWT) on the processed EEG signals which was separated to gamma, beta, alpha and theta bands. Shannon’s entropy and signal energy were computed with a temporal window from these 4 channels. Deep convolutional neural network (CNN) model is trained to classify the signal into valence-arousal space.
 
 For more details please checkout **Emotion Recognition based on EEG signals using Deep CNN model.pdf**
-- ### Package Version
+## Package Version
 ---
     numpy == 1.16.5
     pandas == 0.25.1
@@ -16,7 +16,7 @@ For more details please checkout **Emotion Recognition based on EEG signals usin
     pywt == 1.0.3
 
 
-- ## Execution Process
+## Execution Process
 ---
 ### For more details, check out the **src** block.
 1. Run **Readmat.py** to load matlab file from AMIGOS datset. 
@@ -25,25 +25,25 @@ For more details please checkout **Emotion Recognition based on EEG signals usin
 4. Set train_encoder=*True*, and train_classifier=*False* in **Train.py** to train **convolutional autoencoder** for **pretraining** while set train_encoder=*False*, and train_classifier=*Train* to train **classifier**
 
 
-- ## dataset
+## dataset
 ---
 - We put our AMIGOS dataset in this directory
 
 
-- ## src
+## src
 ---
 - Containing all **source code** written in python
     ###Readmat.py
 
-- ## src/modelweight
+## src/modelweight
 ---
 - Containing all **model weight** (torch model state dictionary object)
 - 
 
-- ## src/tmp
+## src/tmp
 ---
 - Containing all **processed data**
 
-- ## src/eeg_ica
+## src/eeg_ica
 ---
 - Containing all **EEG data** processed by **ICA**
