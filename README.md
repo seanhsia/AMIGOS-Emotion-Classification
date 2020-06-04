@@ -54,6 +54,7 @@ For more details please checkout **Emotion Recognition based on EEG signals usin
     - OrganisingData(mats)
         - Extract needed information from dataset data
         - mats(list): dataset data
+	- return: data_list, selfassessment_list
     ### ICA.py
     - PreprocessData()
         - Drop EEG data in first three seconds, and remove all NaN data and labels
