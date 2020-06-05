@@ -119,7 +119,6 @@ For more details please checkout **Emotion Recognition based on EEG signals usin
         - model: model you want to validate
         - loss_fct: loss function for validation
         - return type: average testing loss, average testing accuracy, average valence accuracy, average arousal accuracy
-    -
 
     
 
