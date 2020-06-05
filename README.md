@@ -5,6 +5,7 @@ In this study, we developed an emotion recognition system based on the valence-a
 For more details please checkout **Emotion Recognition based on EEG signals using Deep CNN model.pdf**
 ## Package Version
 ---
+    python == 3.7.4
     numpy == 1.16.5
     pandas == 0.25.1
     pytorch == 1.0.0
@@ -64,7 +65,62 @@ For more details please checkout **Emotion Recognition based on EEG signals usin
         - EEG_list(list): a list contains EEG data
         - index(int): the index of EEG data in EEG_list you want to start the ICA process
     - LoadICAData()
-        - Load all processed data from src/eeg_ica/ and formed into a list. Afterwards, the function dump the list into src/tmp/  
+        - Load all processed data from src/eeg_ica/ and formed into a list. Afterwards, the function dump the list into src/tmp/ 
+    ### Preprocessing.py
+    - LoadProcessedData()
+        - Load data dumped into src/tmp (formed ICA processed EEG data)
+        - return type: list
+    - Energy(signal)
+        - Compute signal energy
+        - signal(numpy array)
+        - return type: numpy array
+    - DiscreteWaveletTransform(signal, feature, windowsize=4, sampling_rate=128)
+        - signal: 2D EEG signal
+        - feature(str): "entropy" or "energy"
+        - widowsize: the size of the temporal window, default = 4 seconds
+        - sampling_rate: the sample rate of the input signal
+        - return type: numpy array contaning signals in gamma, alpha, beta, theta frequency bands
+    - ZeroPadding(EEG_list, total_length)
+        - Perform zero padding
+        - EEG_list(list): a list containing all EEG signals you want to pad
+        - total_length: The signal length after padding
+        - return type: list
+    ### Train.py
+    - LoadTrainTestData()
+        - Load all EEG data and labels, and split training and testing data
+        - return type: numpy array, numpy array, numpy array, numpy array
+    - TrainAutoEncoder(train_loader, test_loader, model, epochs, device, optimizer='Adam', lr=1e-4):
+        - train the model and save the model weight dictionary 
+        - train_loader: training dataloader(torch dataloader)
+        - test_loader: testing dataloader(torch dataloader)
+        - model(torch model): the model you want to optimized
+        - epochs(int): how many epochs you want to train
+        - device: which gpu or cpu device you wnat to use
+        - optimizer: which optimization algorithm you want to use (only Adam is avaliable now)
+        - lr: learning rate
+        - return: training loss(list), testing loss(list)
+    - TestAutoEncoder(test_loader, model, loss_fct)
+        - test_loader: testing dataloader(torch dataloader)
+        - model: model you want to validate
+        - loss_fct: loss function for validation
+        - return type: average testing loss
+    - TrainClassifier(train_loader, test_loader, model, epochs, device, optimizer='Adam', lr=1e-4):
+        - train the model and save the model weight dictionary 
+        - train_loader: training dataloader(torch dataloader)
+        - test_loader: testing dataloader(torch dataloader)
+        - model(torch model): the model you want to optimized
+        - epochs(int): how many epochs you want to train
+        - device: which gpu or cpu device you wnat to use
+        - optimizer: which optimization algorithm you want to use (only Adam is avaliable now)
+        - lr: learning rate
+        - return: training loss, testing loss, training accuracy, testing accuracy, valence accuracy, arousal accuracy
+    - TestClassifier(test_loader, model, loss_fct)
+        - test_loader: testing dataloader(torch dataloader)
+        - model: model you want to validate
+        - loss_fct: loss function for validation
+        - return type: average testing loss, average testing accuracy, average valence accuracy, average arousal accuracy
+    -
+
     
 
 ## src/modelweight

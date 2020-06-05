@@ -160,9 +160,8 @@ def GetPseudoLabel_Kmeans(selfassessment_list, plot=False):
     return pseudo_label, y_kmeans_pseudo
 
 
-def LoadMatData():
+def LoadMatData(path):
     mats=[]
-    path ="C:/Users/USER/Desktop/NCTU/Class/2019Autumn/Project/dataset/"
     for i in range(40):
         if i+1 < 10:
             dataName="Data_Preprocessed_P0"+str(i+1)    
@@ -201,7 +200,9 @@ def OrganisingData(mats):
 
 
 if __name__=='__main__':
-    mats=LoadMatData()
+    mat_file_path="C:/Users/USER/Desktop/NCTU/Class/2019Autumn/Project/dataset/"
+        
+    mats=LoadMatData(mat_file_path)
     data_list, selfassessment_list=OrganisingData(mats)
     pseudo_label, pseudo_index=GetPseudoLabel_Kmeans(selfassessment_list, plot=False)
     groundtruth_df=GetGroundtruth_Df(selfassessment_list, pseudo_label, pseudo_index, plot_ground_video=False, plot_individual=True)
